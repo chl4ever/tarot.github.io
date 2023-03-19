@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tarot Card App</title>
+</head>
+<body>
+    <h1 style="color:mediumaquamarine;font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif; font-size: medium;";>欢迎来到情绪安抚喵!</h1>
+    <button onclick="pickCard()">Pick a Card</button>
+    <div id="result"></div>
+
+    <script>
+    // Create an array of tarot cards
+    let tarotCards = [
+        "The Fool",
+        "The Magician",
+        "The High Priestess",
+        "The Empress",
+        "The Emperor",
+    "The Hierophant",
+    "The Lovers",
+    "The Chariot",
+    "Strength",
+    "The Hermit",
+    "Wheel of Fortune",
+    "Justice",
+    "The Hanged Man",
+    "Death",
+    "Temperance",
+    "The Devil",
+    "The Tower",
+    "The Star",
+    "The Moon",
+    "The Sun",
+    "Judgment",
+    "The World"
+      ];
+      
+      // Define the meanings of the cards
+      let meanings = {
+        "The Fool": "0号牌愚人：新的项目要来了！新开始，乐观，taking risks。注意看下脚下是不是悬崖。",
+        "The Magician": "1号牌魔术师：俗称想办法，吹牛B牌。 显化，创意，想各种办法being resourceful，也要小心身边有大忽悠",
+        "The High Priestess": "2号牌女祭司：俗称有点死板保守牌。直觉，智慧，有些被动。十动然拒牌",
+        "The Empress": "3号牌皇后。懒得1B。丰收，热情，有魅力，小心变胖或怀孕",
+        "The Emperor":"4号牌皇帝。觉得自己NB，或者被比权力大的人收拾。责任，权威，果断，或者过于专断、才不配位",
+        "The Hierophant":"5号牌教皇。教育，信仰，遵守制度。可能有些心胸狭隘，容不下其他观点",
+        "The Lovers":"6号牌恋人。不一定和脱单有关，主要代表沟通顺畅。结盟，沟通，价值观合拍，和睦",
+        "The Chariot":"7号战车牌。卷起来！奋斗！勇往直前！努力奋斗ing的一般都是这个牌",
+        "Strength":"8号勇气。和老板或者环境力量周旋。以柔克刚，要温柔坚定啊",
+        "The Hermit":"9号牌隐士。社恐自闭牌。独立，反省，自闭，或者刻薄、浮躁、神经质",
+        "Wheel of Fortune":"10号牌命运之轮。可能要出差。该发生的都会发生，转变，转折点。或者拒绝改变。",
+        "Justice":"11号正义牌。以前做的事情都会昭告天下。公正，公平，真相，得到应有的回报",
+        "The Hanged Man":"12号倒吊人。STUCK!,进退两难，换个视角看问题。",
+        "Death": "13号死神。一个结束和新生。",
+        "Temperance":"14号平衡。调整，关注自我需求，平和一些",
+        "The Devil":"15号恶魔。物质主义，rou yu，颓废。可能周末要出high",
+        "The Tower":"16号高塔。突然的打击或者改变，不破不立",
+        "The Star":"17号星星。希望，想象，续约，重新开始，期望过高",
+        "The Moon":"18号月亮。优柔寡断，想不清楚，雾里看花。",
+        "The Sun":"19号太阳。最好的牌之一。也可能要有个孩子了。",
+        "Judgment":"20号审判。判决，好运，或者就是考试/答辩/presentation等。",
+        "The World":"21号世界。最后一张牌。结束，完美结束，愿望达成，project over"
+      };
+      
+      // Define the pickCard function
+        function pickCard() {
+        let randomIndex = Math.floor(Math.random() * tarotCards.length);
+        let selectedCard = tarotCards[randomIndex];
+        let cardMeaning = meanings[selectedCard];
+        let resultElement = document.getElementById("result");
+        resultElement.innerHTML = `You picked the card ${selectedCard}.<br> 
+        The meaning of this card is: ${cardMeaning}`; return selectedCard;
+
+        document.getElementById("result").textContent = ""; // Clear the previous result
+        // Ask the user to think of a question and pick a card
+      
+       // Display the selected card to the user
+       console.log(`The card you picked is: ${selectedCard.name}`);
+            
+            // Provide the meaning of the card to the user
+            console.log(`Meaning: ${selectedCard.meaning}`);
+            
+            // Display the card name and meaning to the user
+            let resultDiv = document.getElementById("result");
+            let cardDiv = document.createElement("div");
+            let cardImage = document.createElement("img");
+            cardImage.src = selectedCard.image;
+            cardImage.alt = selectedCard.name;
+            cardImage.style.width = "200px";
+            cardImage.style.height = "300px";
+            cardDiv.appendChild(cardImage);
+            cardDiv.innerHTML += `<br>The card you picked is: ${selectedCard.name}<br>Meaning: ${selectedCard.meaning}<br><br>`;
+            resultDiv.appendChild(cardDiv);
+        }
+      </script>
+
+  </body>    
+</html>
